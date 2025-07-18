@@ -37,42 +37,49 @@ import { usePermissions } from "@/contexts/PermissionsContext";
 const navigationItems = [
   {
     title: "Dashboard",
-    url: "/",
+    url: "/admin",
     icon: LayoutDashboard,
     description: "Overview & Analytics",
     requiredPage: "/"
   },
   {
+    title: "Applications",
+    url: "/admin/applications",
+    icon: FileText,
+    description: "Job Applications",
+    requiredPage: "/applications"
+  },
+  {
     title: "Employees",
-    url: "/employees",
+    url: "/admin/employees",
     icon: Users,
     description: "Manage Staff",
     requiredPage: "/employees"
   },
   {
     title: "Leaves",
-    url: "/leaves",
+    url: "/admin/leaves",
     icon: Calendar,
     description: "Time Off Management",
     requiredPage: "/leaves"
   },
   {
     title: "Documents",
-    url: "/documents",
-    icon: FileText,
+    url: "/admin/documents",
+    icon: Building2,
     description: "Document Tracking",
     requiredPage: "/documents"
   },
   {
     title: "Compliance",
-    url: "/compliance",
+    url: "/admin/compliance",
     icon: Shield,
     description: "Regulatory Tasks",
     requiredPage: "/compliance"
   },
   {
     title: "Reports",
-    url: "/reports",
+    url: "/admin/reports",
     icon: BarChart3,
     description: "Analytics & Export",
     requiredPage: "/reports"
@@ -82,14 +89,14 @@ const navigationItems = [
 const settingsItems = [
   {
     title: "Settings",
-    url: "/settings",
+    url: "/admin/settings",
     icon: Settings,
     description: "System Configuration",
     requiredPage: "/settings"
   },
   {
     title: "User Management",
-    url: "/user-management",
+    url: "/admin/user-management",
     icon: UserCog,
     description: "Roles & Permissions",
     requiredPage: "/user-management"

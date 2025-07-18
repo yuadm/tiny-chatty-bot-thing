@@ -18,6 +18,8 @@ import Settings from "./pages/Settings";
 import UserManagement from "./pages/UserManagement";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import JobApplication from "./pages/JobApplication";
+import Applications from "./pages/Applications";
 
 // Protected Route component with permission checking
 function ProtectedRoute({ children, requiredPage }: { children: React.ReactNode; requiredPage?: string }) {
@@ -44,47 +46,56 @@ function AppContent() {
   return (
     <Routes>
       <Route path="/auth" element={<Auth />} />
-      <Route path="/" element={
+      {/* Public job application portal */}
+      <Route path="/" element={<JobApplication />} />
+      
+      {/* Protected admin routes */}
+      <Route path="/admin" element={
         <ProtectedRoute>
           <Index />
         </ProtectedRoute>
       } />
-      <Route path="/employees" element={
+      <Route path="/admin/applications" element={
+        <ProtectedRoute requiredPage="/applications">
+          <Applications />
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/employees" element={
         <ProtectedRoute requiredPage="/employees">
           <Employees />
         </ProtectedRoute>
       } />
-      <Route path="/leaves" element={
+      <Route path="/admin/leaves" element={
         <ProtectedRoute requiredPage="/leaves">
           <Leaves />
         </ProtectedRoute>
       } />
-      <Route path="/documents" element={
+      <Route path="/admin/documents" element={
         <ProtectedRoute requiredPage="/documents">
           <Documents />
         </ProtectedRoute>
       } />
-      <Route path="/compliance" element={
+      <Route path="/admin/compliance" element={
         <ProtectedRoute requiredPage="/compliance">
           <Compliance />
         </ProtectedRoute>
       } />
-      <Route path="/compliance/:id" element={
+      <Route path="/admin/compliance/:id" element={
         <ProtectedRoute requiredPage="/compliance">
           <ComplianceType />
         </ProtectedRoute>
       } />
-      <Route path="/reports" element={
+      <Route path="/admin/reports" element={
         <ProtectedRoute requiredPage="/reports">
           <Reports />
         </ProtectedRoute>
       } />
-      <Route path="/settings" element={
+      <Route path="/admin/settings" element={
         <ProtectedRoute requiredPage="/settings">
           <Settings />
         </ProtectedRoute>
       } />
-      <Route path="/user-management" element={
+      <Route path="/admin/user-management" element={
         <ProtectedRoute requiredPage="/user-management">
           <UserManagement />
         </ProtectedRoute>
