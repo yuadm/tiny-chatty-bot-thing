@@ -532,6 +532,7 @@ export type Database = {
       job_applications: {
         Row: {
           availability: Json | null
+          consent: Json | null
           created_at: string
           declarations: Json | null
           employment_history: Json | null
@@ -544,6 +545,7 @@ export type Database = {
         }
         Insert: {
           availability?: Json | null
+          consent?: Json | null
           created_at?: string
           declarations?: Json | null
           employment_history?: Json | null
@@ -556,6 +558,7 @@ export type Database = {
         }
         Update: {
           availability?: Json | null
+          consent?: Json | null
           created_at?: string
           declarations?: Json | null
           employment_history?: Json | null

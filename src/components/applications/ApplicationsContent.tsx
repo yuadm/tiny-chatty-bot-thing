@@ -19,6 +19,7 @@ interface JobApplication {
   employment_history: any;
   skills_experience: any;
   declarations: any;
+  consent: any;
   status: string;
   created_at: string;
   updated_at: string;
@@ -143,7 +144,7 @@ export const ApplicationsContent = () => {
   const ApplicationDetailModal = ({ application }: { application: JobApplication }) => {
     if (!application) return null;
 
-    const { personal_info, availability, employment_history, skills_experience, declarations } = application;
+    const { personal_info, availability, employment_history, skills_experience, declarations, consent } = application;
 
     return (
       <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
@@ -242,6 +243,39 @@ export const ApplicationsContent = () => {
                       <p className="text-sm">{employment.keyTasks}</p>
                     </div>
                   ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Consent & Signature */}
+          {consent && (
+            <Card>
+              <CardHeader>
+                <CardTitle>Consent & Signature</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Digital Signature</p>
+                    <p className="font-medium">{consent?.signature}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Signature Date</p>
+                    <p className="font-medium">{consent?.signatureDate}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Declaration Consent</p>
+                    <Badge variant={consent?.declarationConsent ? "default" : "destructive"}>
+                      {consent?.declarationConsent ? "Agreed" : "Not Agreed"}
+                    </Badge>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Data Processing Consent</p>
+                    <Badge variant={consent?.processingConsent ? "default" : "destructive"}>
+                      {consent?.processingConsent ? "Agreed" : "Not Agreed"}
+                    </Badge>
+                  </div>
                 </div>
               </CardContent>
             </Card>
