@@ -194,28 +194,6 @@ export const PersonalInformationStep = ({ data, onDataChange, jobPositions }: Pe
             </div>
 
             <div>
-              <Label htmlFor="password">Create Password *</Label>
-              <Input
-                id="password"
-                type="password"
-                value={personalInfo.password || ''}
-                onChange={(e) => handleChange('password', e.target.value)}
-                placeholder="Create a password"
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="confirmPassword">Confirm Password *</Label>
-              <Input
-                id="confirmPassword"
-                type="password"
-                value={personalInfo.confirmPassword || ''}
-                onChange={(e) => handleChange('confirmPassword', e.target.value)}
-                placeholder="Confirm your password"
-              />
-            </div>
-
-            <div>
               <Label htmlFor="englishProficiency">Proficiency in English (if not first language) *</Label>
               <Select value={personalInfo.englishProficiency || ''} onValueChange={(value) => handleChange('englishProficiency', value)}>
                 <SelectTrigger>

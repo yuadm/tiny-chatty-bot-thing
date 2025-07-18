@@ -7,6 +7,7 @@ import { AvailabilityStep } from './steps/AvailabilityStep';
 import { EmploymentHistoryStep } from './steps/EmploymentHistoryStep';
 import { SkillsExperienceStep } from './steps/SkillsExperienceStep';
 import { DeclarationsStep } from './steps/DeclarationsStep';
+import { ConsentStep } from './steps/ConsentStep';
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
@@ -24,6 +25,7 @@ interface ApplicationData {
   employmentHistory: any;
   skillsExperience: any;
   declarations: any;
+  consent: any;
   positionId: string;
 }
 
@@ -36,6 +38,7 @@ export const JobApplicationPortal = () => {
     employmentHistory: {},
     skillsExperience: {},
     declarations: {},
+    consent: {},
     positionId: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,7 +49,8 @@ export const JobApplicationPortal = () => {
     { title: 'Availability', component: AvailabilityStep },
     { title: 'Employment History', component: EmploymentHistoryStep },
     { title: 'Skills & Experience', component: SkillsExperienceStep },
-    { title: 'Declarations', component: DeclarationsStep }
+    { title: 'Declarations', component: DeclarationsStep },
+    { title: 'Consent & Signature', component: ConsentStep }
   ];
 
   useEffect(() => {
@@ -103,6 +107,7 @@ export const JobApplicationPortal = () => {
           employment_history: applicationData.employmentHistory,
           skills_experience: applicationData.skillsExperience,
           declarations: applicationData.declarations,
+          consent: applicationData.consent,
           status: 'new'
         }]);
 
@@ -120,6 +125,7 @@ export const JobApplicationPortal = () => {
         employmentHistory: {},
         skillsExperience: {},
         declarations: {},
+        consent: {},
         positionId: ''
       });
       setCurrentStep(0);
